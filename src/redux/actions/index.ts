@@ -1,13 +1,17 @@
 import { fetchPhotos } from '../../services/photo-API';
 import { Dispatch, Photo } from '../../types';
 
+// Action types
 export const USER_LOGIN = 'USER_LOGIN';
+
 export const FETCH_PHOTOS_REQUEST = 'FETCH_PHOTOS_REQUEST';
 export const FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS';
 export const FETCH_PHOTOS_FAILURE = 'FETCH_PHOTOS_FAILURE';
+
 export const FAVORITE_PHOTO = 'FAVORITE_PHOTO';
 export const REMOVE_FAVORITE_PHOTO = 'REMOVE_FAVORITE_PHOTO';
 
+// Action creators
 export const userLogin = (email: string) => ({
   type: USER_LOGIN,
   payload: {
@@ -47,6 +51,7 @@ const fetchPhotosFailure = (errorMessage: string) => ({
   },
 });
 
+// Thunks
 export const fetchPhotosThunk = (searchTerm: string) => async (dispatch: Dispatch) => {
   try {
     dispatch(fetchPhotosRequest());
